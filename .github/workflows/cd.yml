@@ -1,0 +1,25 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+jobs:
+  deploy-to-caprover:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: adamghill/build-docker-and-deploy-to-caprover@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          caprover-app-name: leerming
+          caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
+          caprover-app-token: ${{ secrets.CAPROVER_APP_TOKEN }}
+          docker-file-name: deploy/Dockerfile
+  
