@@ -117,7 +117,7 @@ if DEBUG:
         "debug_toolbar",
         "whitenoise.runserver_nostatic",
         "django_browser_reload",
-        "django_fastdev",
+        # "django_fastdev",
         *THIRD_PARTY_APPS,
     ]
 

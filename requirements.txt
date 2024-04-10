@@ -36,6 +36,7 @@
 # - psycopg[binary]
 # - redis
 # - sentry-sdk
+# - shiv
 # - whitenoise
 #
 
@@ -113,6 +114,7 @@ click==8.1.7
     #   cookiecutter
     #   django-typer
     #   djlint
+    #   shiv
     #   typer
     #   typer-slim
 colorama==0.4.6
@@ -422,6 +424,8 @@ pathspec==0.12.1
 pexpect==4.9.0
     # via ipython
 pillow==10.3.0
+pip==24.0
+    # via shiv
 platformdirs==4.2.0
     # via
     #   black
@@ -538,9 +542,12 @@ send2trash==1.8.3
     # via jupyter-server
 sentry-sdk==1.45.0
 setuptools==69.2.0
-    # via nodeenv
+    # via
+    #   nodeenv
+    #   shiv
 shellingham==1.5.4
     # via django-typer
+shiv==1.0.5
 six==1.16.0
     # via
     #   asttokens
