@@ -493,7 +493,7 @@ qtconsole==5.5.1
     # via jupyter
 qtpy==2.4.1
     # via qtconsole
-rcssmin==1.1.1
+rcssmin==1.1.2
     # via django-compressor
 redis==5.0.3
 referencing==0.34.0
