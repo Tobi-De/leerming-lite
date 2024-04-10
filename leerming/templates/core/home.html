@@ -1,5 +1,9 @@
 {% extends "core/base.html" %}
 
-{% block content %}
-  Home page
-{% endblock content %}
+{% block body %}
+  <main class="container mx-auto">
+   Leerming lite
+  <a c  class="middle none center rounded-lg bg-teal-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-teal-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+     href="{% url 'account_login' %}">Login</a>
+  </main>
+{% endblock body %}

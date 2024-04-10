@@ -48,6 +48,7 @@ dependencies = [
     "redis",
     "sentry-sdk",
     "whitenoise",
+    "django-widget-tweaks",
 ]
 
 [tool.django-stubs]
@@ -120,6 +121,7 @@ makemigrations = "python manage.py makemigrations {args}"
 reset-db = "python manage.py reset_db --noinput"
 shell = "python manage.py shell_plus {args}"
 upgrade-deps = ["rm requirements.txt", "hatch env run --env default -- python --version"]
+superuser = ["python manage.py createsuperuser --noinput"]
 
 [tool.hatch.envs.docs]
 dependencies = [

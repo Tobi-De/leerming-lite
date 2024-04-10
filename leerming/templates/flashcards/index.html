@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load humanize %}
 {% load static %}
 
@@ -15,35 +16,6 @@
     </div>
 {% endpartialdef card_answer %}
 
-
-{% block modal %}
-    <dialog data-modal class="bg-white shadow-lg rounded-xl dark:bg-gray-800">
-        <div class="p-4 sm:py-6 sm:p-10 text-center">
-            <h3 class="mb-2 text-2xl font-bold text-gray-800 dark:text-gray-200">
-                {% trans "Email du destinataire" %}
-            </h3>
-            <form hx-target="dialog"
-                  hx-include="[id='filter-form']"
-                  id="dialog-form"
-                  hx-post="{% url 'gifts:set_recipient' %}"></form>
-        </div>
-        <div class="flex items-center">
-            <button data-modal-close type="button"
-                    class="p-4 w-full inline-flex justify-center items-center gap-2 rounded-bl-xl bg-gray-100 border border-transparent font-semibold text-gray-800 hover:text-blue-600 focus:outline-none focus:ring-2 ring-offset-white focus:ring-gray-100 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-600 dark:text-white dark:focus:ring-offset-gray-800"
-                    data-hs-overlay="#hs-cookies">
-                {% trans "Annuler" %}
-            </button>
-            <button type="submit" form="dialog-form"
-                    class="p-4 w-full inline-flex justify-center items-center gap-2 rounded-br-xl border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-                    data-hs-overlay="#hs-cookies">
-                {% trans "Soumettre" %}
-            </button>
-        </div>
-    </dialog>
-{% endblock modal %}
-{% block javascript %}
-    <script src="{% static 'javascript/modal.js' %}"></script>
-{% endblock javascript %}
 {% block content %}
     <header class="mb-6">
         <h1 class="block text-2xl font-bold text-gray-800 sm:text-3xl dark:text-white">{% trans "Vos Cartes" %}
@@ -62,25 +34,6 @@
             </a>
         </div>
     </header>
-
-    <form hx-get="."
-          hx-indicator=".htmx-indicator"
-          hx-target="#flashcards"
-          hx-trigger="keyup delay:500ms, change, search"
-          hx-swap="innerHTML transition:true"
-          class="my-5 flex flex-col xl:flex-row gap-2"
-          id="filter-form"
-    >
-        {{ form }}
-        <button hx-get="{% url 'gifts:set_recipient' %}"
-                hx-target="#dialog-form"
-                hx-include="[id='filter-form']"
-                data-open-modal
-                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-offset-gray-800">
-            Envoyer a un ami
-            {% heroicon_solid "paper-airplane" class="w-4 h-4" %}
-        </button>
-    </form>
 
     <div id="flashcards">
         {% partialdef flashcards inline=True %}

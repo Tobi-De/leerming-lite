@@ -16,7 +16,6 @@ from model_utils.models import TimeStampedModel
 from leerming.reviews.models import Review
 from leerming.reviews.models import ScheduleManager
 
-
 TIMEZONES_CHOICES = [(tz, tz) for tz in zoneinfo.available_timezones()]
 
 
@@ -35,8 +34,7 @@ class Profile(LifecycleModelMixin, TimeStampedModel):
     )
     full_name = models.CharField(_("full name"), max_length=200, blank=True)
     short_name = models.CharField(_("short name"), max_length=50, blank=True)
-    review_days = ArrayField(
-        models.PositiveSmallIntegerField(choices=Weekday.choices),
+    review_days = models.JSONField(
         verbose_name=_("Jours de révision"),
     )
     review_time = models.TimeField(

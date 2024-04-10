@@ -69,6 +69,8 @@ EMAIL_BACKEND = (
     else "anymail.backends.amazon_ses.EmailBackend"
 )
 
+FORM_RENDERER = "leerming.core.forms.FormRenderer"
+
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -99,6 +101,7 @@ THIRD_PARTY_APPS = [
     "heroicons",
     "django_extensions",
     "compressor",
+    "widget_tweaks",
 ]
 
 LOCAL_APPS = [
@@ -324,7 +327,7 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 ACCOUNT_USERNAME_REQUIRED = False
 
-LOGIN_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "flashcards:index"
 
 # django-anymail
 if not DEBUG:

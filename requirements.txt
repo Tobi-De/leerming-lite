@@ -80,9 +80,9 @@ black==24.3.0
     # via falco-cli
 bleach==6.1.0
     # via nbconvert
-boto3==1.34.74
+boto3==1.34.81
     # via django-anymail
-botocore==1.34.74
+botocore==1.34.81
     # via
     #   boto3
     #   s3transfer
@@ -113,6 +113,7 @@ click==8.1.7
     #   cookiecutter
     #   django-typer
     #   djlint
+    #   typer
     #   typer-slim
 colorama==0.4.6
     # via djlint
@@ -142,7 +143,7 @@ dj-database-url==2.1.0
 dj-email-url==1.0.6
     # via environs
 dj-notebook==0.7.0
-django==5.0.3
+django==5.0.4
     # via
     #   crispy-tailwind
     #   dj-database-url
@@ -188,10 +189,10 @@ django-forms-dynamic==1.0.0
 django-health-check==3.18.1
 django-htmx==1.17.3
 django-lifecycle==1.2.3
-django-model-utils==4.4.0
-django-pandas==0.6.6
+django-model-utils==4.5.0
+django-pandas==0.6.7
     # via dj-notebook
-django-picklefield==3.1
+django-picklefield==3.2
     # via django-q2
 django-q-registry==0.2.1
 django-q2==1.6.2
@@ -202,8 +203,8 @@ django-stubs==4.2.7
 django-stubs-ext==4.2.7
     # via django-stubs
 django-tailwind-cli==2.10.0
-django-template-partials==23.4
-django-typer==1.0.9
+django-template-partials==24.2
+django-typer==1.1.0
     # via django-tailwind-cli
 django-widget-tweaks==1.5.0
 djlint==1.34.1
@@ -218,11 +219,11 @@ executing==2.0.1
 falco-cli==0.22.1
 fastjsonschema==2.19.1
     # via nbformat
-filelock==3.13.3
+filelock==3.13.4
     # via virtualenv
 fqdn==1.5.1
     # via jsonschema
-granian==1.2.0
+granian==1.2.2
 gunicorn==21.2.0
 h11==0.14.0
     # via httpcore
@@ -254,7 +255,7 @@ ipykernel==6.29.4
     #   jupyter-console
     #   jupyterlab
     #   qtconsole
-ipython==8.22.2
+ipython==8.23.0
     # via
     #   dj-notebook
     #   ipykernel
@@ -320,7 +321,7 @@ jupyter-core==5.7.2
     #   qtconsole
 jupyter-events==0.10.0
     # via jupyter-server
-jupyter-lsp==2.2.4
+jupyter-lsp==2.2.5
     # via jupyterlab
 jupyter-server==2.13.0
     # via
@@ -331,11 +332,11 @@ jupyter-server==2.13.0
     #   notebook-shim
 jupyter-server-terminals==0.5.3
     # via jupyter-server
-jupyterlab==4.1.5
+jupyterlab==4.1.6
     # via notebook
 jupyterlab-pygments==0.3.0
     # via nbconvert
-jupyterlab-server==2.25.4
+jupyterlab-server==2.26.0
     # via
     #   jupyterlab
     #   notebook
@@ -371,7 +372,7 @@ nbconvert==7.16.3
     # via
     #   jupyter
     #   jupyter-server
-nbformat==5.10.3
+nbformat==5.10.4
     # via
     #   jupyter-server
     #   nbclient
@@ -410,7 +411,7 @@ pandas==2.2.1
     #   django-pandas
 pandocfilters==1.5.1
     # via nbconvert
-parso==0.8.3
+parso==0.8.4
     # via
     #   falco-cli
     #   jedi
@@ -420,7 +421,7 @@ pathspec==0.12.1
     #   djlint
 pexpect==4.9.0
     # via ipython
-pillow==10.2.0
+pillow==10.3.0
 platformdirs==4.2.0
     # via
     #   black
@@ -525,7 +526,6 @@ rich==13.7.1
     #   cookiecutter
     #   dj-notebook
     #   falco-cli
-    #   typer-slim
 rjsmin==1.2.1
     # via django-compressor
 rpds-py==0.18.0
@@ -534,15 +534,13 @@ rpds-py==0.18.0
     #   referencing
 s3transfer==0.10.1
     # via boto3
-send2trash==1.8.2
+send2trash==1.8.3
     # via jupyter-server
-sentry-sdk==1.44.0
+sentry-sdk==1.45.0
 setuptools==69.2.0
     # via nodeenv
 shellingham==1.5.4
-    # via
-    #   django-typer
-    #   typer-slim
+    # via django-typer
 six==1.16.0
     # via
     #   asttokens
@@ -601,30 +599,26 @@ traitlets==5.14.2
     #   nbconvert
     #   nbformat
     #   qtconsole
-typer==0.12.0
-    # via
-    #   django-typer
-    #   granian
-typer-cli==0.12.0
-    # via typer
-typer-slim==0.12.0
-    # via
-    #   typer
-    #   typer-cli
+typer==0.11.1
+    # via granian
+typer-slim==0.12.3
+    # via django-typer
 types-python-dateutil==2.9.0.20240316
     # via arrow
 types-pytz==2024.1.0.20240203
     # via django-stubs
 types-pyyaml==6.0.12.20240311
     # via django-stubs
-typing-extensions==4.10.0
+typing-extensions==4.11.0
     # via
     #   cappa
     #   dj-database-url
     #   django-stubs
     #   django-stubs-ext
+    #   ipython
     #   mypy
     #   psycopg
+    #   typer
     #   typer-slim
     #   typing-inspect
 typing-inspect==0.9.0
@@ -655,7 +649,7 @@ webencodings==0.5.1
     #   tinycss2
 websocket-client==1.7.0
     # via jupyter-server
-werkzeug==3.0.1
+werkzeug==3.0.2
 whitenoise==6.6.0
 widgetsnbextension==4.0.10
     # via ipywidgets
