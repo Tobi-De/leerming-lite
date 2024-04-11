@@ -1,40 +1,44 @@
 import sys
 import subprocess
+import multiprocessing
+
+import granian
+from granian.constants import Interfaces
 
 
-def _run_granian():
-    subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "granian",
-            "--interface",
-            "wsgi",
-            "leerming.wsgi:application",
-            "--port",
-            "8000",
-        ]
-    )
+def main() -> None:
+    run_func = None
+    if len(sys.argv) > 1:
+        run_func = COMMANDS.get(sys.argv[1])
+
+    if run_func:
+        run_func(sys.argv)
+    else:
+        run_granian(sys.argv)
 
 
-def _run_manage(*args):
+def run_qcluster(argv: list) -> None:
+    """Run Django-q cluster."""
     subprocess.run(
         [
             sys.executable,
             "-m",
             "manage",
-            *args,
+            "qcluster",
+            *argv[2:],
         ]
     )
 
 
-def main():
-    if len(sys.argv) > 1:
-        _run_manage(*sys.argv[1:])
-    else:
-        _run_granian()
+def run_manage(argv: list) -> None:
+    """Run Django's manage command."""
+    subprocess.run([sys.executable, "-m", "manage", *argv[2:]])
 
 
-if __name__ == "__main__":
-    main()
+def run_granian(argv: list) -> None:
+    """Run the web server."""
+    workers = multiprocessing.cpu_count() * 2 + 1
+    granian.Granian("leerming.wsgi:application", interface=Interfaces.WSGI, workers=workers, port=8000).serve()
 
+
+COMMANDS = {"qcluster": run_qcluster, "manage": run_manage}
