@@ -1,7 +1,6 @@
 import datetime as dt
 import zoneinfo
 
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import timezone
 from django.utils.functional import cached_property
@@ -11,10 +10,9 @@ from django_lifecycle import AFTER_UPDATE
 from django_lifecycle import BEFORE_SAVE
 from django_lifecycle import hook
 from django_lifecycle import LifecycleModelMixin
-from model_utils.models import TimeStampedModel
-
 from leerming.reviews.models import Review
 from leerming.reviews.models import ScheduleManager
+from model_utils.models import TimeStampedModel
 
 TIMEZONES_CHOICES = [(tz, tz) for tz in zoneinfo.available_timezones()]
 

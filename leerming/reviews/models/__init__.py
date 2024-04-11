@@ -12,12 +12,12 @@ from django.db import models
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-from model_utils.models import TimeStampedModel
-
-from .schedule import ScheduleManager  # noqa
 from leerming.flashcards.models import FlashCard
 from leerming.flashcards.models import Topic
 from leerming.users.models import User
+from model_utils.models import TimeStampedModel
+
+from .schedule import ScheduleManager  # noqa
 
 
 class ReviewError(Exception):
@@ -127,7 +127,7 @@ class Review(TimeStampedModel):
             current_card_index = session.flashcard_ids.index(session.current_card_id)
             next_flashcard_id = session.flashcard_ids[current_card_index + 1]
         except IndexError as e:
-            raise SessionEndedError() from e
+            raise SessionEndedError from e
 
         session.current_card_id = next_flashcard_id
         session.save()

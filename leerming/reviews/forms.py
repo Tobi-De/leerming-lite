@@ -2,9 +2,9 @@ from django import forms
 from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.utils.translation import gettext_lazy as _
+from leerming.flashcards.models import Topic
 
 from .models import Review
-from leerming.flashcards.models import Topic
 
 
 NO_TOPIC_FLASHCARD = "no_topic"
@@ -60,7 +60,8 @@ class ReviewForm(forms.Form):
             msg = _("Aucune carte à réviser pour aujourd'hui")
             if topics:
                 msg = _(
-                    f"Aucune carte à réviser aujourd'hui pour les sujets: {', '.join(topics.values_list('title', flat=True))}"
+                    f"Aucune carte à réviser aujourd'hui pour les sujets: "
+                    f"{', '.join(topics.values_list('title', flat=True))}"
                 )
             raise forms.ValidationError(msg)
         return {

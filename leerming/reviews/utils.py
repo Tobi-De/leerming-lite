@@ -2,7 +2,6 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.core.mail import get_connection
 from django.template.loader import render_to_string
-
 from leerming.users.models import User
 
 

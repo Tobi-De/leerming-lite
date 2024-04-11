@@ -1,7 +1,4 @@
-from contextlib import suppress
-
 from django.apps import AppConfig
-from django.db import IntegrityError, OperationalError
 
 
 class ProfilesConfig(AppConfig):

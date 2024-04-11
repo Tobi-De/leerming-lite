@@ -3,10 +3,10 @@ import datetime as dt
 from django.db import models
 from django.utils import timezone
 from django_q.models import Schedule
+from leerming.users.models import User
 from model_utils.models import TimeStampedModel
 
 from ..utils import notify_reviewers
-from leerming.users.models import User
 
 
 class ScheduleManager(TimeStampedModel):

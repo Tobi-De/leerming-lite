@@ -1,15 +1,14 @@
 import multiprocessing
-import sys
 import os
+import sys
 from pathlib import Path
-from sentry_sdk.integrations.django import DjangoIntegration
-from sentry_sdk.integrations.logging import LoggingIntegration
 
 import sentry_sdk
 from environs import Env
-
 from leerming.core.sentry import sentry_profiles_sampler
 from leerming.core.sentry import sentry_traces_sampler
+from sentry_sdk.integrations.django import DjangoIntegration
+from sentry_sdk.integrations.logging import LoggingIntegration
 
 # 0. Setup
 # --------------------------------------------------------------------------------------------
@@ -45,10 +44,7 @@ elif "REDIS_URL" in os.environ:
 CSRF_COOKIE_SECURE = not DEBUG
 
 DATABASES = {
-    "default": env.dj_db_url(
-        "DATABASE_URL",
-        default="sqlite:///db.sqlite3"
-    ),
+    "default": env.dj_db_url("DATABASE_URL", default="sqlite:///db.sqlite3"),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -64,9 +60,7 @@ DEFAULT_FROM_EMAIL = env(
 )
 
 EMAIL_BACKEND = (
-    "django.core.mail.backends.console.EmailBackend"
-    if DEBUG
-    else "anymail.backends.amazon_ses.EmailBackend"
+    "django.core.mail.backends.console.EmailBackend" if DEBUG else "anymail.backends.amazon_ses.EmailBackend"
 )
 
 FORM_RENDERER = "leerming.core.forms.FormRenderer"
@@ -236,9 +230,7 @@ CACHED_LOADERS = [("django.template.loaders.cached.Loader", DEFAULT_LOADERS)]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            str(APPS_DIR / "templates")
-        ],
+        "DIRS": [str(APPS_DIR / "templates")],
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -299,9 +291,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [
-    APPS_DIR / "static"
-]
+STATICFILES_DIRS = [APPS_DIR / "static"]
 
 # 3. Third Party Settings
 # -------------------------------------------------------------------------------------------------

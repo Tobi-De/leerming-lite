@@ -22,4 +22,3 @@ jobs:
           caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
           caprover-app-token: ${{ secrets.CAPROVER_APP_TOKEN }}
           docker-file-name: deploy/Dockerfile
-  

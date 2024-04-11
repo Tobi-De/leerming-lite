@@ -2,9 +2,9 @@ from django import forms
 from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.utils.translation import gettext_lazy as _
+from leerming.flashcards.models import Topic
 
 from .models import FlashCard
-from leerming.flashcards.models import Topic
 
 ALL_TOPICS = "ALL_TOPICS"
 NO_TOPIC = "NO_TOPIC"

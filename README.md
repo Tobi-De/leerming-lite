@@ -64,7 +64,7 @@ falco work
 
 3. Add a `main.py` project package to server as entry point:
 
-4. Build app with shiv 
+4. Build app with shiv
 
     ```shell
     shiv --site-packages dist --compressed \

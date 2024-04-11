@@ -1,15 +1,16 @@
-from django.conf import settings
 from functools import partial
+
+from decorator_include import decorator_include
+from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from django.urls import include
 from django.urls import path
 from django.views import defaults as default_views
-from leerming.core import views as core_views
 from health_check.views import MainView
-from django.contrib.auth.decorators import login_required
+from leerming.core import views as core_views
 from leerming.profiles.decorators import profile_required
-from decorator_include import decorator_include
 
 decorator_include_login_and_profile = partial(
     decorator_include,
