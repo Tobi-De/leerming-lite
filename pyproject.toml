@@ -5,7 +5,7 @@ requires = [
 ]
 
 [tool.hatch.build.targets.sdist]
-only-include = ["leerming", "manage.py"]
+only-include = ["leerming", "manage.py", "staticfiles"]
 
 [project]
 name = "leerming"
