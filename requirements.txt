@@ -405,7 +405,7 @@ packaging==24.0
     #   nbconvert
     #   qtconsole
     #   qtpy
-pandas==2.2.1
+pandas==2.2.2
     # via
     #   dj-notebook
     #   django-pandas
