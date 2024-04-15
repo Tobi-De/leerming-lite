@@ -526,7 +526,7 @@ rich==13.7.1
     #   cookiecutter
     #   dj-notebook
     #   falco-cli
-rjsmin==1.2.1
+rjsmin==1.2.2
     # via django-compressor
 rpds-py==0.18.0
     # via
