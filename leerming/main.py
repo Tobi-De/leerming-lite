@@ -1,5 +1,4 @@
 import multiprocessing
-import subprocess
 import sys
 
 import granian
@@ -19,21 +18,16 @@ def main() -> None:
 
 def run_qcluster(argv: list) -> None:
     """Run Django-q cluster."""
-    subprocess.run(
-        [
-            sys.executable,
-            "-m",
-            "manage",
-            "qcluster",
-            *argv[2:],
-        ],
-        check=False,
-    )
+    from django.core.management import execute_from_command_line
+
+    execute_from_command_line(argv[2:])
 
 
 def run_manage(argv: list) -> None:
     """Run Django's manage command."""
-    subprocess.run([sys.executable, "-m", "manage", *argv[2:]], check=False)
+    from django.core.management import execute_from_command_line
+
+    execute_from_command_line(argv[1:])
 
 
 def run_granian(argv: list) -> None:
@@ -49,3 +43,7 @@ def run_granian(argv: list) -> None:
 
 
 COMMANDS = {"qcluster": run_qcluster, "manage": run_manage}
+
+
+if __name__ == "__main__":
+    main()
