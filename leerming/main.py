@@ -43,6 +43,7 @@ def run_granian(argv: list) -> None:
         "leerming.wsgi:application",
         interface=Interfaces.WSGI,
         workers=workers,
+        address="0.0.0.0",
         port=8000,
     ).serve()
 
