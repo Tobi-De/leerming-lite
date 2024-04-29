@@ -359,7 +359,7 @@ mdurl==0.1.2
     # via markdown-it-py
 mistune==3.0.2
     # via nbconvert
-mypy==1.7.1
+mypy==1.10.0
     # via django-stubs
 mypy-extensions==1.0.0
     # via
